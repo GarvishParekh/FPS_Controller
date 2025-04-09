@@ -4,6 +4,7 @@ public class InteractionController : MonoBehaviour
 {
     UiManager uiManager;
 
+    [SerializeField] private PlayerData playerData;
     [SerializeField] private Transform originPoint;
     [SerializeField] private LayerMask targetLayer;
     [SerializeField] private float rayDistance;
