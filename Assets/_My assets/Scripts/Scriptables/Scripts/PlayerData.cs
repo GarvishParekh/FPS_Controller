@@ -3,6 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Player data", menuName = "Scriptable/Player data")]
 public class PlayerData : ScriptableObject
 {
+    public InteractableValue interactableValue;
+
     [Header("<b>Foot movement")]
     public SprintingValue sprintingValue;
     public float playerCurrentSpeed = 2;

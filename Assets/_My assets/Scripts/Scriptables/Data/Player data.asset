@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Player data
   m_EditorClassIdentifier: 
   sprintingValue: 0
-  playerCurrentSpeed: 3.8000011
+  playerCurrentSpeed: 2
   playerNormalSpeed: 2
-  playerSprintingSpeed: 5
+  playerSprintingSpeed: 4
   playerSpeedSmoothningValue: 0.08
   mouseSensitivity: 100
