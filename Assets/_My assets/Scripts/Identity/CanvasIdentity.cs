@@ -51,6 +51,5 @@ public class CanvasIdentity : MonoBehaviour
         isOpen = false;
         canvasGroup.alpha = 0;
         canvasGroup.blocksRaycasts = false;
-
     }
 }

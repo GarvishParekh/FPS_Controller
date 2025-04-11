@@ -45,6 +45,16 @@ public class UiManager : MonoBehaviour
         }
     }
 
+    public void ClosePopup(string desireCanvas)
+    {
+        foreach (CanvasIdentity canvas in AllCanvas)
+        {
+            if (canvas.SelectedIdentity == desireCanvas)
+            {
+                canvas.CloseCanvas();
+            }
+        }
+    }
 
     public void AddToList(CanvasIdentity canvasIdentity)
     {

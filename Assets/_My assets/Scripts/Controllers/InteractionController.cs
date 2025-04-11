@@ -2,17 +2,10 @@ using UnityEngine;
 
 public class InteractionController : MonoBehaviour
 {
-    UiManager uiManager;
-
     [SerializeField] private PlayerData playerData;
     [SerializeField] private Transform originPoint;
     [SerializeField] private LayerMask targetLayer;
     [SerializeField] private float rayDistance;
-
-    private void Start()
-    {
-        uiManager = UiManager.instance;
-    }
 
     private void Update()
     {
@@ -27,12 +20,25 @@ public class InteractionController : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, rayDistance, targetLayer))
         {
-            Debug.Log("Hit an interactable object: " + hit.collider.name);
-            Debug.DrawRay(originPoint.position, originPoint.forward * rayDistance, Color.green);
+            if (playerData.interactableValue == InteractableValue.NOT_FOUND)
+            {
+                IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+                if (interactable == null) return;
+
+                interactable.OnInterace();
+                Debug.Log($"object found: {hit.collider.name}");
+            }
+            playerData.interactableValue = InteractableValue.FOUND;
+            Debug.DrawRay(originPoint.position, originPoint.forward * rayDistance, Color.black);
         }
         else
         {
             Debug.DrawRay(originPoint.position, originPoint.forward * rayDistance, Color.red);
+            if (playerData.interactableValue == InteractableValue.FOUND)
+            {
+                ActionManager.OnInteract?.Invoke(false, "");
+            }
+            playerData.interactableValue = InteractableValue.NOT_FOUND;
         }
     }
 }

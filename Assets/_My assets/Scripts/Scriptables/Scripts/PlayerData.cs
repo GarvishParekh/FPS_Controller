@@ -16,8 +16,3 @@ public class PlayerData : ScriptableObject
     public float mouseSensitivity = 100;
 }
 
-public enum SprintingValue
-{
-    NOT_SPRINTING,
-    IS_SPRINTING
-}
