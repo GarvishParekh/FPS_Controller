@@ -2,9 +2,17 @@ using UnityEngine;
 
 public class BoundryController : MonoBehaviour
 {
+    [Header("Scriptables")]
+    [SerializeField] private PlayerData playerData;
+    [SerializeField] private TimerData timerData;
+
+    [Header("Values")]
+    public float outsideThreshold = 3.0f;
+    public float timer;
+
     [Header("Components")]
-    public Transform player; // Assign points manually in inspector
-    [SerializeField] private BoundryValue boundryValue;
+    public Transform player; 
+    public Transform mapCenterPoint; 
 
     [Header("Boundary Points")]
     public Transform[] boundaryPoints; // Assign points manually in inspector
@@ -13,9 +21,13 @@ public class BoundryController : MonoBehaviour
     public Color activeBoundryColor = Color.green;
     public bool showGizmosAlways = true;
 
+    private void Awake() => timerData.outsideTimer = 0;
+
     private void Update()
     {
         IsInsideVillage();
+        ActionCallingSystem();
+        TimerCalculation();
     }
 
     // Check if player is inside the boundary
@@ -23,7 +35,7 @@ public class BoundryController : MonoBehaviour
     {
         Vector2 playerPos2D = new Vector2(player.position.x, player.position.z);
 
-        boundryValue = BoundryValue.OUTSIDE;
+        playerData.currentBoundryValue = BoundryValue.OUTSIDE;
         activeBoundryColor = Color.red;
         int j = boundaryPoints.Length - 1;
 
@@ -36,12 +48,42 @@ public class BoundryController : MonoBehaviour
             if ((pi.y > playerPos2D.y) != (pj.y > playerPos2D.y) &&
                 (playerPos2D.x < (pj.x - pi.x) * (playerPos2D.y - pi.y) / (pj.y - pi.y) + pi.x))
             {
-                boundryValue = BoundryValue.INSIDE;
-                activeBoundryColor = Color.green; 
+                playerData.currentBoundryValue = BoundryValue.INSIDE;
+                activeBoundryColor = Color.green;
             }
 
             j = i;
         }
+    }
+
+    private void ActionCallingSystem()
+    {
+        if (playerData.currentBoundryValue != playerData.previousBoundryValue)
+        {
+            ActionManager.OnOutsideBoundries?.Invoke(playerData.currentBoundryValue);
+            playerData.previousBoundryValue = playerData.currentBoundryValue;
+        }
+    }
+
+    private void TimerCalculation()
+    {
+        if (playerData.currentBoundryValue == BoundryValue.INSIDE)
+        {
+            timerData.outsideTimer = timerData.outsideTimerThreshold;
+            return;
+
+        }
+
+        if (timerData.outsideTimer > 0)
+        {
+            timerData.outsideTimer -= Time.deltaTime;
+        }
+        else
+        {
+            player.position = mapCenterPoint.position;
+            timerData.outsideTimer = timerData.outsideTimerThreshold;
+        }
+
     }
 
     // Draw Gizmos in Scene View

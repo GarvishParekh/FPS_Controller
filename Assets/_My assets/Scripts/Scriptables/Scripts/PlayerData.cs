@@ -5,6 +5,10 @@ public class PlayerData : ScriptableObject
 {
     public InteractableValue interactableValue;
 
+    [Header("<b>Position")]
+    public BoundryValue currentBoundryValue;
+    public BoundryValue previousBoundryValue;
+
     [Header("<b>Foot movement")]
     public SprintingValue sprintingValue;
     public float playerCurrentSpeed = 2;
