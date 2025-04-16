@@ -5,6 +5,9 @@ public class PlayerData : ScriptableObject
 {
     public InteractableValue interactableValue;
 
+    [Header("<b>Weapon information")]
+    public WeaponID equipedWeaponID;   
+
     [Header("<b>Position")]
     public BoundryValue currentBoundryValue;
     public BoundryValue previousBoundryValue;

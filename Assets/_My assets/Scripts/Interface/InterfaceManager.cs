@@ -8,3 +8,8 @@ public interface IInteractable
 {
     public void OnInterace();
 }
+
+public interface IPickable
+{
+    public void OnPick();
+}

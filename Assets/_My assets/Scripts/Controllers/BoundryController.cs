@@ -37,22 +37,31 @@ public class BoundryController : MonoBehaviour
 
         playerData.currentBoundryValue = BoundryValue.OUTSIDE;
         activeBoundryColor = Color.red;
+
         int j = boundaryPoints.Length - 1;
+        bool inside = false;
 
         for (int i = 0; i < boundaryPoints.Length; i++)
         {
             Vector2 pi = new Vector2(boundaryPoints[i].position.x, boundaryPoints[i].position.z);
             Vector2 pj = new Vector2(boundaryPoints[j].position.x, boundaryPoints[j].position.z);
 
-            // check if the player is inside the boundry
-            if ((pi.y > playerPos2D.y) != (pj.y > playerPos2D.y) &&
-                (playerPos2D.x < (pj.x - pi.x) * (playerPos2D.y - pi.y) / (pj.y - pi.y) + pi.x))
+            if ((pi.y > playerPos2D.y) != (pj.y > playerPos2D.y))
             {
-                playerData.currentBoundryValue = BoundryValue.INSIDE;
-                activeBoundryColor = Color.green;
+                float intersectionX = (pj.x - pi.x) * (playerPos2D.y - pi.y) / (pj.y - pi.y) + pi.x;
+                if (playerPos2D.x < intersectionX)
+                {
+                    inside = !inside;
+                }
             }
 
             j = i;
+        }
+
+        if (inside)
+        {
+            playerData.currentBoundryValue = BoundryValue.INSIDE;
+            activeBoundryColor = Color.green;
         }
     }
 

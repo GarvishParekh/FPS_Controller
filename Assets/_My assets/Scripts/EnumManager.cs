@@ -15,3 +15,10 @@ public enum BoundryValue
     INSIDE,
     OUTSIDE
 }
+
+public enum WeaponID
+{
+    NULL,
+    AK,
+    HANDGUN
+}
