@@ -5,12 +5,12 @@ public class SfxController : MonoBehaviour
     [Header("<b>Compenents")]
     [SerializeField] private Rigidbody playerRb;
     [SerializeField] private AudioSource footStepsAudioSource;
+    [SerializeField] private AudioSource weaponEquipAudioSource;
 
     [Header ("<b>Scriptable")]
     [SerializeField] private SfxData sfxData;
     [SerializeField] private InputData inputData;
     [SerializeField] private PlayerData playerData;
-
 
     float counter = 0;
     int footStepRandomIndex = 0;
@@ -19,6 +19,16 @@ public class SfxController : MonoBehaviour
     private void Awake()
     {
         footstepsDelay = sfxData.normalDelay;
+    }
+
+    private void OnEnable()
+    {
+        ActionManager.OnWeaponPicked += WeaponPickUpSound;
+    }
+
+    private void OnDisable()
+    { 
+        ActionManager.OnWeaponPicked -= WeaponPickUpSound;
     }
 
     private void FixedUpdate() => PlayFootSteps();
@@ -54,5 +64,14 @@ public class SfxController : MonoBehaviour
         {
             counter += Time.deltaTime;
         }
+    }
+
+    private void WeaponPickUpSound(Weapon weapon)
+    {
+        if (weapon.weaponID == WeaponID.NULL)
+        {
+            weaponEquipAudioSource.PlayOneShot(sfxData.weaponDropClip);
+        }
+        else  weaponEquipAudioSource.PlayOneShot(sfxData.weaponEquipClip);
     }
 }

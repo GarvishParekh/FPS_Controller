@@ -20,5 +20,6 @@ public enum WeaponID
 {
     NULL,
     AK,
-    HANDGUN
+    HANDGUN,
+    SNIPER
 }

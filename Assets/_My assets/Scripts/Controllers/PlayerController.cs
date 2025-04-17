@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Movement();
-        CameraMovement();
         PlayerSprinting();
+        CameraMovement();
     }
 
     private void Movement()

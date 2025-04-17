@@ -12,4 +12,5 @@ public interface IInteractable
 public interface IPickable
 {
     public void OnPick();
+    public WeaponID GetWeaponID();
 }

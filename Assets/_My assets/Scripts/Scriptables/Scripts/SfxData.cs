@@ -5,6 +5,8 @@ public class SfxData : ScriptableObject
 {
     public AudioClip bgMusicClip;
     public AudioClip[] footstepClips;
+    public AudioClip weaponEquipClip;
+    public AudioClip weaponDropClip;
 
     [Header ("Footsteps audio settings")]
     public float normalDelay = 0.8f;

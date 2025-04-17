@@ -6,13 +6,15 @@ public class PlayerData : ScriptableObject
     public InteractableValue interactableValue;
 
     [Header("<b>Weapon information")]
-    public WeaponID equipedWeaponID;   
+    public WeaponID equipedWeaponID;
+    public float detectioRayDistance = 3.0f;
 
     [Header("<b>Position")]
     public BoundryValue currentBoundryValue;
     public BoundryValue previousBoundryValue;
 
     [Header("<b>Foot movement")]
+    public bool isMoving = false;
     public SprintingValue sprintingValue;
     public float playerCurrentSpeed = 2;
     public float playerNormalSpeed = 2;

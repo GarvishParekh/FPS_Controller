@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 4867431682053304932}
   - component: {fileID: 344696199455449562}
   - component: {fileID: 7263969536329022983}
-  m_Layer: 0
-  m_Name: ak47
+  m_Layer: 9
+  m_Name: AK 69
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,10 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6347916ade2308d46bef1d48f5d9eddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon:
-    weaponName: AK 69
-    weaponID: 1
-    weaponPrefab: {fileID: 0}
+  myWeaponID: 1
+  weaponData: {fileID: 11400000, guid: 144e29a6e1f768a4a93dd924032112b6, type: 2}
 --- !u!65 &7263969536329022983
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -178,7 +176,7 @@ GameObject:
   - component: {fileID: 6779615497500448645}
   - component: {fileID: 3920170699741091656}
   - component: {fileID: 3336325365709073165}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: akmagazine_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +259,7 @@ GameObject:
   - component: {fileID: 7892972392753305773}
   - component: {fileID: 4108581763704136551}
   - component: {fileID: 3048962898227048845}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: aktrigger_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +342,7 @@ GameObject:
   - component: {fileID: 4769990064639735773}
   - component: {fileID: 7835262748506217272}
   - component: {fileID: 4591096231714689286}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: akderriere_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}

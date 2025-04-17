@@ -18,5 +18,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f67ff03e59bbdae42b1cc2294fd58092, type: 3}
   - {fileID: 8300000, guid: 9fb3f1aa8d81f574d9dba1fadae7c216, type: 3}
   - {fileID: 8300000, guid: 3d04b88c72a1e934fb57f99bf7890280, type: 3}
+  weaponEquipClip: {fileID: 8300000, guid: 70b74e0e0b95b144d873052f1009051f, type: 3}
+  weaponDropClip: {fileID: 8300000, guid: 2bad66189d2b0ae4d84e2822b4dd68d3, type: 3}
   normalDelay: 0.8
   sprintDelay: 0.4

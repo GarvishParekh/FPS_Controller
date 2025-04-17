@@ -2,10 +2,13 @@ using UnityEngine;
 
 public class InteractionController : MonoBehaviour
 {
+    [Header ("<b>Scriptable")]
     [SerializeField] private PlayerData playerData;
+    [SerializeField] private WeaponData weaponData;
+
+    [Header ("<b>Components")]
     [SerializeField] private Transform originPoint;
     [SerializeField] private LayerMask targetLayer;
-    [SerializeField] private float rayDistance;
    
 
     private void FixedUpdate()
@@ -22,13 +25,13 @@ public class InteractionController : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, rayDistance, targetLayer))
         {
-            // weapon pickup 
+            // myWeapon pickup 
             IPickable pickable = hit.collider.GetComponent<IPickable>();
             if (pickable != null)
             {
                 if (Input.GetKeyDown(KeyCode.F))
                 {
-                    Debug.Log($"Player picked up weapon {pickable.GetItemName()}");
+                    Debug.Log($"Player picked up myWeapon {pickable.GetItemName()}");
                     pickable.OnPick();
                 }
             }
@@ -62,10 +65,10 @@ public class InteractionController : MonoBehaviour
     private void FireRayCast()
     {
         Ray ray = new Ray(originPoint.position, originPoint.forward);
-        bool hitSomething = Physics.Raycast(ray, out RaycastHit hit, rayDistance, targetLayer);
+        bool hitSomething = Physics.Raycast(ray, out RaycastHit hit, playerData.detectioRayDistance, targetLayer);
 
         // Always draw ray (debugging)
-        Debug.DrawRay(ray.origin, ray.direction * rayDistance, hitSomething ? Color.black : Color.red);
+        Debug.DrawRay(ray.origin, ray.direction * playerData.detectioRayDistance, hitSomething ? Color.black : Color.red);
 
         if (!hitSomething)
         {
@@ -83,6 +86,10 @@ public class InteractionController : MonoBehaviour
         {
             if (hit.collider.TryGetComponent<IPickable>(out var pickable))
             {
+                if (weaponData.equippedWeapon != WeaponID.NULL)
+                {
+                    ActionManager.OnThrowWeapon?.Invoke(false);
+                }
                 pickable.OnPick();
             }
         }
