@@ -19,7 +19,7 @@ public class GeneralEventsListeners : MonoBehaviour {
 
 	void Awake(){
 		LeanTween.LISTENERS_MAX = 100; // This is the maximum of event listeners you will have added as listeners
-		LeanTween.EVENTS_MAX = (int)MyEvents.LENGTH; // The maximum amount of events you will be dispatching
+		LeanTween.EVENTS_MAX = (int)MyEvents.LENGTH; // The maximum swayTimer of events you will be dispatching
 
 		fromColor = GetComponent<Renderer>().material.color;
 	}

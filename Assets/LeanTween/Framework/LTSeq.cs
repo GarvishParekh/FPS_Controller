@@ -94,7 +94,7 @@ public class LTSeq {
 	/**
 	* Add a time delay to the sequence
 	* @method append (delay)
-	* @param {float} delay:float amount of time to add to the sequence
+	* @param {float} delay:float swayTimer of time to add to the sequence
 	* @return {LTSeq} LTDescr an object that distinguishes the tween
 	* var seq = LeanTween.sequence();<br>
 	* seq.append(1f); // delay everything one second<br>

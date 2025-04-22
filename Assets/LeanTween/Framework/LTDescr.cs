@@ -352,7 +352,7 @@ public class LTDescr
             trans.RotateAround(rotateAroundPt, this._optional.axis, -this._optional.lastVal);
 			Vector3 diff = origPos - trans.localPosition;
 
-            trans.localPosition = origPos - diff; // Subtract the amount the object has been shifted over by the rotate, to get it back to it's orginal position
+            trans.localPosition = origPos - diff; // Subtract the swayTimer the object has been shifted over by the rotate, to get it back to it's orginal position
 			trans.rotation = this._optional.origRotation;
 
 			rotateAroundPt = (Vector3)trans.TransformPoint( this._optional.point );
@@ -376,7 +376,7 @@ public class LTDescr
             trans.RotateAround((Vector3)trans.TransformPoint( this._optional.point ), trans.TransformDirection(this._optional.axis), -this._optional.lastVal);
 			Vector3 diff = origPos - trans.localPosition;
 
-            trans.localPosition = origPos - diff; // Subtract the amount the object has been shifted over by the rotate, to get it back to it's orginal position
+            trans.localPosition = origPos - diff; // Subtract the swayTimer the object has been shifted over by the rotate, to get it back to it's orginal position
 			trans.localRotation = this._optional.origRotation;
 			Vector3 rotateAroundPt = (Vector3)trans.TransformPoint( this._optional.point );
 			trans.RotateAround(rotateAroundPt, trans.TransformDirection(this._optional.axis), val);
@@ -708,7 +708,7 @@ public class LTDescr
 			rect.RotateAround((Vector3)rect.TransformPoint( this._optional.point ), this._optional.axis, -val);
 			Vector3 diff = origPos - rect.localPosition;
 
-			rect.localPosition = origPos - diff; // Subtract the amount the object has been shifted over by the rotate, to get it back to it's orginal position
+			rect.localPosition = origPos - diff; // Subtract the swayTimer the object has been shifted over by the rotate, to get it back to it's orginal position
 			rect.rotation = this._optional.origRotation;
 			rect.RotateAround((Vector3)rect.TransformPoint( this._optional.point ), this._optional.axis, val);
 		};
@@ -726,7 +726,7 @@ public class LTDescr
 			rect.RotateAround((Vector3)rect.TransformPoint( this._optional.point ), rect.TransformDirection(this._optional.axis), -val);
 			Vector3 diff = origPos - rect.localPosition;
 
-			rect.localPosition = origPos - diff; // Subtract the amount the object has been shifted over by the rotate, to get it back to it's orginal position
+			rect.localPosition = origPos - diff; // Subtract the swayTimer the object has been shifted over by the rotate, to get it back to it's orginal position
 			rect.rotation = this._optional.origRotation;
 			rect.RotateAround((Vector3)rect.TransformPoint( this._optional.point ), rect.TransformDirection(this._optional.axis), val);
 		};

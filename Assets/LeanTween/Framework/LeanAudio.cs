@@ -341,7 +341,7 @@ public class LeanAudioOptions : object {
 	public LeanAudioOptions(){}
 
 	/**
-	* Set the frequency for the audio is encoded. 44100 is CD quality, but you can usually get away with much lower (or use a lower amount to get a more 8-bit sound).
+	* Set the frequency for the audio is encoded. 44100 is CD quality, but you can usually get away with much lower (or use a lower swayTimer to get a more 8-bit sound).
 	* 
 	* @method setFrequency
 	* @param {int} frequencyRate:int of the frequency you wish to encode the AudioClip at

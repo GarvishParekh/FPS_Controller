@@ -1242,7 +1242,7 @@ public class LeanTween : MonoBehaviour {
     #endif
 
     /**
-    * <summary>Call a method after a specified amount of time</summary>
+    * <summary>Call a method after a specified swayTimer of time</summary>
     * 
     * @method LeanTween.delayedCall
     * @param {GameObject} gameObject:GameObject Gameobject that you wish to associate with this delayed call
@@ -3636,7 +3636,7 @@ public class LTSpline {
 * @param {float} y:float Y location
 * @param {float} width:float Width
 * @param {float} height:float Height
-* @param {float} alpha:float (Optional) initial alpha amount (0-1)
+* @param {float} alpha:float (Optional) initial alpha swayTimer (0-1)
 * @param {float} rotation:float (Optional) initial rotation in degrees (0-360) 
 */
 

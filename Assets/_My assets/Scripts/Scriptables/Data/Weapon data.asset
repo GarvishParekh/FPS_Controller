@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9103b1401db672247922aac29235be35, type: 3}
   m_Name: Weapon data
   m_EditorClassIdentifier: 
-  equippedName: AK 69
-  equippedWeapon: 1
+  equippedName: Sniper
+  equippedWeapon: 3
   weaponDatabase:
   - weaponName: Hands
     weaponID: 0
@@ -38,3 +38,9 @@ MonoBehaviour:
   swayAmount: 5
   maxSway: 5
   smoothAmount: 4
+  addWalkSway: 1
+  swayheight: 0.01
+  swayTimer: 170.0002
+  SwaySpeed: 12
+  normalSwaySpeed: 12
+  sprintingSwaySpeed: 20

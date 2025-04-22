@@ -5340,7 +5340,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1212741809}
-  - {fileID: 1125836690}
+  - {fileID: 1377137496}
   m_Father: {fileID: 932338335}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &522811756
@@ -6585,10 +6585,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26c01197efc6404e9477572d30c7beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 9be31c557f2cd484092b90e58ac54d6f, type: 2}
   weaponData: {fileID: 11400000, guid: 144e29a6e1f768a4a93dd924032112b6, type: 2}
   inputData: {fileID: 11400000, guid: 821b3fafc528d3440ab552236197f370, type: 2}
   weaponThrowTransform: {fileID: 1212741809}
   weaponHolder: {fileID: 1125836690}
+  walkSwayHolder: {fileID: 2128782886}
+  idelSwayHolder: {fileID: 1377137496}
   inHandWeapons:
   - {fileID: 344696198736938625}
   - {fileID: 4422760341767146728}
@@ -12098,7 +12101,7 @@ Transform:
   - {fileID: 6300643352805264323}
   - {fileID: 1712615761358786267}
   - {fileID: 7163702410545409136}
-  m_Father: {fileID: 522811755}
+  m_Father: {fileID: 2128782886}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1130794863 stripped
 GameObject:
@@ -14549,6 +14552,38 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 264414c28ea0fbb41b924fd17d9228b3, type: 3}
+--- !u!1 &1377137495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1377137496}
+  m_Layer: 8
+  m_Name: Idel sawy holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1377137496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377137495}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2128782886}
+  m_Father: {fileID: 522811755}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1379408239 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1076262714343606, guid: 68cbfa1438162b243ac02fb9e3e30581,
@@ -24162,6 +24197,38 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: a90ec1b8be596134b912428bfce1f226, type: 3}
+--- !u!1 &2128782885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2128782886}
+  m_Layer: 8
+  m_Name: Walking sway holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2128782886
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128782885}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1125836690}
+  m_Father: {fileID: 1377137496}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2140717710
 GameObject:
   m_ObjectHideFlags: 0

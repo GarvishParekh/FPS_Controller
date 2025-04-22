@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: 8af7da5b5ef8284408bac78475c4c87c
+guid: 95c6e5b4f8dc8a04c8a79e436820f03d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Level_Themes1
+    second: {fileID: 2100000, guid: 2030564cff14f3e48b616f59fb4c60b8, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Level Themes -1
+    second: {fileID: 2800000, guid: ef9d4d895801bd44fb318f49e4b3b6ea, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -48,7 +58,7 @@ ModelImporter:
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
