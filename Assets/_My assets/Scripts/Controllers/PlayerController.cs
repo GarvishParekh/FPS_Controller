@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        CheckPlayerBlocked();
         Movement();
         PlayerSprinting();
         CameraMovement();
@@ -61,6 +62,13 @@ public class PlayerController : MonoBehaviour
                 targetSpeedValue, 
                 playerData.playerSpeedSmoothningValue
             );
+    }
+
+    private void CheckPlayerBlocked()
+    {
+        playerData.recordedPlayerVelocity = playerRb.velocity.magnitude;
+        if (playerRb.velocity.magnitude < 0.1f  ) playerData.playerBlocked = PlayerBlocked.IS_BLOCKED;
+        else playerData.playerBlocked = PlayerBlocked.NOT_BLOCKED;
     }
 }
 

@@ -68,7 +68,7 @@ public class InteractionController : MonoBehaviour
         bool hitSomething = Physics.Raycast(ray, out RaycastHit hit, playerData.detectioRayDistance, targetLayer);
 
         // Always draw ray (debugging)
-        Debug.DrawRay(ray.origin, ray.direction * playerData.detectioRayDistance, hitSomething ? Color.black : Color.red);
+        //Debug.DrawRay(ray.origin, ray.direction * playerData.detectioRayDistance, hitSomething ? Color.black : Color.red);
 
         if (!hitSomething)
         {
@@ -99,7 +99,7 @@ public class InteractionController : MonoBehaviour
             hit.collider.TryGetComponent<IInteractable>(out var interactable))
         {
             interactable.OnInterace(); // Typo? Should this be "OnInteract"?
-            Debug.Log($"Object found: {hit.collider.name}");
+            //Debug.Log($"Object found: {hit.collider.name}");
 
             playerData.interactableValue = InteractableValue.FOUND;
         }

@@ -14,13 +14,17 @@ public class PlayerData : ScriptableObject
     public BoundryValue previousBoundryValue;
 
     [Header("<b>Foot movement")]
-    public bool isMoving = false;
-    public SprintingValue sprintingValue;
     public float playerCurrentSpeed = 2;
     public float playerNormalSpeed = 2;
     public float playerSprintingSpeed = 5;
     public float playerSpeedSmoothningValue = 0.25f;
+    public SprintingValue sprintingValue;
 
+    [Space]
+    public bool isMoving = false;
+    public PlayerBlocked playerBlocked;
+    public float recordedPlayerVelocity;
+     
     [Header ("<b>Head movement")]
     public float mouseSensitivity = 100;
 }

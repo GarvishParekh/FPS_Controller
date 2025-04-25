@@ -12,9 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa33c20afdeeb5a4ca7c627c44f31d15, type: 3}
   m_Name: Player data
   m_EditorClassIdentifier: 
-  sprintingValue: 0
+  interactableValue: 0
+  equipedWeaponID: 0
+  detectioRayDistance: 3
+  currentBoundryValue: 0
+  previousBoundryValue: 0
   playerCurrentSpeed: 2
   playerNormalSpeed: 2
   playerSprintingSpeed: 4
   playerSpeedSmoothningValue: 0.08
+  sprintingValue: 0
+  isMoving: 0
+  playerBlocked: 0
+  recordedPlayerVelocity: 0
   mouseSensitivity: 100

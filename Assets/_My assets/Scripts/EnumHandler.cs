@@ -23,3 +23,9 @@ public enum WeaponID
     HANDGUN,
     SNIPER
 }
+
+public enum PlayerBlocked
+{
+    NOT_BLOCKED,
+    IS_BLOCKED
+}

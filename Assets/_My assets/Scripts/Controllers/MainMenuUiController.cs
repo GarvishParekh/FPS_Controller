@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,7 @@ public class MainMenuUiController : MonoBehaviour
 
     [Header ("<b>Components")]
     [SerializeField] public TMP_Text interactableText;
+    [SerializeField] public ContentSizeFitter interactableTextSizeFitter;
     [SerializeField] public TMP_Text outsideTimerCountText;
     [SerializeField] public TMP_Text weaponNameText;
     [SerializeField] public TMP_Text FpsCounterText;
@@ -22,6 +24,7 @@ public class MainMenuUiController : MonoBehaviour
     [Header("<b>User interface")]
     [SerializeField] public Image weaponIconImage;
     [SerializeField] public Image crossHairImage;
+    [SerializeField] public Transform crossHairTransform;
 
     void Start()
     {
@@ -66,13 +69,22 @@ public class MainMenuUiController : MonoBehaviour
     {
         if (check)
         {
+            StartCoroutine(PopupFunction(check, itemInformation));
+
+            /*
             interactableText.text = itemInformation;
             uiManager.OpenPopup("ItemInfo");
+            interactableTextSizeFitter.enabled = check;
+            */
         }
         else
         {
+            StartCoroutine(PopupFunction(check, itemInformation));
+            /*
             interactableText.text = string.Empty;
             uiManager.ClosePopup("ItemInfo");
+            interactableTextSizeFitter.enabled = check;
+            */
         }
     }
 
@@ -95,17 +107,31 @@ public class MainMenuUiController : MonoBehaviour
         if (!playerData.isMoving)
         {
             crossHairImage.sprite = gameData.steadyCrosshair;
+            crossHairTransform.localScale = Vector3.MoveTowards(crossHairTransform.localScale, Vector3.one, 0.06f);
             return;
         }
         
         switch (playerData.sprintingValue)
         {
             case SprintingValue.NOT_SPRINTING:
+                crossHairTransform.localScale = Vector3.MoveTowards(crossHairTransform.localScale, Vector3.one * 1.4f, 0.1f);
                 crossHairImage.sprite = gameData.walkingCrosshair;
                 break;
             case SprintingValue.IS_SPRINTING:
+                crossHairTransform.localScale = Vector3.MoveTowards(crossHairTransform.localScale, Vector3.one * 2f, 0.1f);
                 crossHairImage.sprite = gameData.sprintingCrosshair;
                 break;
         }
+    }
+
+    IEnumerator PopupFunction(bool check, string itemInfo)
+    {
+        interactableText.text = itemInfo;
+        if (check) uiManager.OpenPopup("ItemInfo");
+        else uiManager.ClosePopup("ItemInfo");
+
+        interactableTextSizeFitter.enabled = true;
+        yield return null;
+        interactableTextSizeFitter.enabled = false;
     }
 }

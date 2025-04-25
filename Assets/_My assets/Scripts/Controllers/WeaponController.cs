@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class WeaponManager : MonoBehaviour
+public class WeaponController : MonoBehaviour
 {
     [Header ("<b>Scriptable")]
     [SerializeField] PlayerData playerData;
@@ -97,6 +97,7 @@ public class WeaponManager : MonoBehaviour
     Vector3 newPos = Vector3.zero;
     private void WalkingSwayAnimation()
     {
+        //if (playerData.playerBlocked == PlayerBlocked.IS_BLOCKED) return;
         if (!playerData.isMoving) return;
 
         weaponData.swayTimer += Time.deltaTime * GetWalkingSwaySpeed();

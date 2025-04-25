@@ -20,7 +20,7 @@ public class WeaponIdentity : MonoBehaviour, IPickable
 
     public void OnPick()
     {
-        Debug.Log($"Player picked: {myWeapon.weaponName}");
+        //Debug.Log($"Player picked: {myWeapon.weaponName}");
         ActionManager.OnWeaponPicked?.Invoke(myWeapon); 
         gameObject.SetActive(false);
         Destroy(gameObject, 0.5f);

@@ -3,7 +3,6 @@ using UnityEngine;
 public class SfxController : MonoBehaviour
 {
     [Header("<b>Compenents")]
-    [SerializeField] private Rigidbody playerRb;
     [SerializeField] private AudioSource footStepsAudioSource;
     [SerializeField] private AudioSource weaponEquipAudioSource;
 
@@ -35,7 +34,7 @@ public class SfxController : MonoBehaviour
 
     private void PlayFootSteps()
     {
-        if (playerRb.velocity == Vector3.forward * 0) return;
+        if (playerData.playerBlocked == PlayerBlocked.IS_BLOCKED) return;
 
         if (inputData.xInput == 0 && inputData.zInput == 0)
         {
@@ -68,7 +67,8 @@ public class SfxController : MonoBehaviour
 
     private void WeaponPickUpSound(Weapon weapon)
     {
-        if (weapon.weaponID == WeaponID.NULL)
+        if (weapon.
+            weaponID == WeaponID.NULL)
         {
             weaponEquipAudioSource.PlayOneShot(sfxData.weaponDropClip);
         }
