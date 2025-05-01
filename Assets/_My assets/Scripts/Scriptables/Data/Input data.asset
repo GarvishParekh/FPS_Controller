@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b813ae83fa7a3a49ba0548edb90f408, type: 3}
   m_Name: Input data
   m_EditorClassIdentifier: 
+  inputType: 1
   xInput: 0
   zInput: 0
+  xHead: 0
+  yHead: 0
+  xTouchInputs: 0
+  yTouchInputs: 0

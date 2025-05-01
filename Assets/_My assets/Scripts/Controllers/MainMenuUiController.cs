@@ -21,6 +21,9 @@ public class MainMenuUiController : MonoBehaviour
     [SerializeField] public TMP_Text weaponNameText;
     [SerializeField] public TMP_Text FpsCounterText;
 
+    [Header("<b>Controls")]
+    [SerializeField] public GameObject touchControls;
+
     [Header("<b>User interface")]
     [SerializeField] public Image weaponIconImage;
     [SerializeField] public Image crossHairImage;
@@ -31,6 +34,7 @@ public class MainMenuUiController : MonoBehaviour
         uiManager = UiManager.instance;
         ActionManager.OnWeaponPicked?.Invoke(weaponData.weaponDatabase[(int)WeaponID.NULL]);
         uiManager.OpenCanvas("Gameplay");
+        UpdateTouchControls();
     }
 
     private void OnEnable()
@@ -134,4 +138,13 @@ public class MainMenuUiController : MonoBehaviour
         yield return null;
         interactableTextSizeFitter.enabled = false;
     }
+
+    private void UpdateTouchControls()
+    {
+        if (touchControls == null) return;
+
+        if (inputData.inputType == InputType.TOUCH) touchControls.SetActive(true);
+        else touchControls.SetActive(false);
+    }
+
 }

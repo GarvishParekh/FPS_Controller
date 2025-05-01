@@ -10,7 +10,7 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         Application.targetFrameRate = 120;
         QualitySettings.vSyncCount = 1;
     }
@@ -35,9 +35,18 @@ public class InputManager : MonoBehaviour
             playerData.sprintingValue = SprintingValue.NOT_SPRINTING;
         }
 
-        // mouse 
-        inputData.xMouse = Input.GetAxis("Mouse X");
-        inputData.yMouse = Input.GetAxis("Mouse Y");
+        switch (inputData.inputType)
+        {
+            case InputType.KEYBAORD:
+                // mouse 
+                inputData.xHead = Input.GetAxis("Mouse X");
+                inputData.yHead = Input.GetAxis("Mouse Y");
+            break;
+            case InputType.TOUCH:
+                //inputData.xHead = inputData.xTouchInputs;
+                //inputData.yHead = inputData.yTouchInputs;
+                break;
+        }
     }
 
     private void MoveCheck()

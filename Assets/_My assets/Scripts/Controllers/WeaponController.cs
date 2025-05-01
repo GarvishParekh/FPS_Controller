@@ -85,8 +85,8 @@ public class WeaponController : MonoBehaviour
         if (!weaponData.addSway) return;
 
         // Invert Y axis for more natural sway
-        swayX = Mathf.Clamp(-inputData.yMouse * weaponData.swayAmount, -weaponData.maxSway, weaponData.maxSway);
-        swayY = Mathf.Clamp(inputData.xMouse * weaponData.swayAmount, -weaponData.maxSway, weaponData.maxSway);
+        swayX = Mathf.Clamp(-inputData.yHead * weaponData.swayAmount, -weaponData.maxSway, weaponData.maxSway);
+        swayY = Mathf.Clamp(inputData.xHead * weaponData.swayAmount, -weaponData.maxSway, weaponData.maxSway);
 
         // Target rotation relative to original
         Quaternion targetRotation = Quaternion.Euler(swayX, swayY, 0);

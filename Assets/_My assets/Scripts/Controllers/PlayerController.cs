@@ -35,8 +35,8 @@ public class PlayerController : MonoBehaviour
 
     private void CameraMovement()
     {
-        mouseX = inputData.xMouse * playerData.mouseSensitivity * Time.deltaTime;
-        mouseY = inputData.yMouse * playerData.mouseSensitivity * Time.deltaTime;
+        mouseX = inputData.xHead * playerData.mouseSensitivity * Time.deltaTime;
+        mouseY = inputData.yHead * playerData.mouseSensitivity * Time.deltaTime;
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Clamp vertical rotation

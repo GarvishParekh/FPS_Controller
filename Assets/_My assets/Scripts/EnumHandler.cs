@@ -29,3 +29,9 @@ public enum PlayerBlocked
     NOT_BLOCKED,
     IS_BLOCKED
 }
+
+public enum InputType
+{
+    KEYBAORD,
+    TOUCH
+}
